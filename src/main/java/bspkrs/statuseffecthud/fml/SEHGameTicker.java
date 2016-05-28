@@ -1,8 +1,8 @@
 package bspkrs.statuseffecthud.fml;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.util.ChatComponentText;
 import bspkrs.bspkrscore.fml.bspkrsCoreMod;
+import net.minecraft.client.Minecraft;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.ClientTickEvent;
@@ -35,7 +35,7 @@ public class SEHGameTicker
             if (bspkrsCoreMod.instance.allowUpdateCheck && StatusEffectHUDMod.instance.versionChecker != null)
                 if (!StatusEffectHUDMod.instance.versionChecker.isCurrentVersion())
                     for (String msg : StatusEffectHUDMod.instance.versionChecker.getInGameMessage())
-                        mc.thePlayer.addChatMessage(new ChatComponentText(msg));
+                        mc.thePlayer.addChatMessage(new TextComponentString(msg));
 
             FMLCommonHandler.instance().bus().unregister(this);
             isRegistered = false;
